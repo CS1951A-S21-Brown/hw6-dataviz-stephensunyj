@@ -131,13 +131,22 @@ function topSalesYear(attr, year){
 
 // -----------------------------------------------------------------------------
 // Graph 2 - map
+
+function getMostPopularGenre(){
+    d3.csv(filename).then(function(all_data){
+        
+
+    });
+}
+
 var svg2 = d3.select("#graph2")
     .append("svg")
     .attr("width", graph_2_width)
     .attr("height", graph_2_height)
+    .attr("transform", `translate( ${margin.right}, ${margin.top})`); 
 
 var projection = d3.geoNaturalEarth()
-    .scale(graph_2_width / 1.3 / Math.PI)
+    .scale(graph_2_width / 1.8 / Math.PI)
     .translate([graph_2_width / 2, graph_2_height / 2])
 
     // Load external data and boot
@@ -159,7 +168,7 @@ svg2.append("text")
     .style("text-anchor", "middle")
     .text("Number of units sold (millions)");
 let title2 = svg2.append("text")
-    .attr("transform", `translate( ${(graph_2_width-margin.left-margin.right)/2}, ${0})`)         // HINT: Place this at the top middle edge of the graph
+    .attr("transform", `translate( ${(graph_2_width-margin.left-margin.right)/2}, ${5})`)         // HINT: Place this at the top middle edge of the graph
     .style("text-anchor", "middle")
     .style("font-size", 15)
     .text("TEst");
