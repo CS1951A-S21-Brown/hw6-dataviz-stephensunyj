@@ -10,3 +10,20 @@
 }
 
 /* Include any custom CSS styling here! */
+
+
+.circle:hover{
+stroke: black;
+stroke-width: 4px;
+}
+
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}

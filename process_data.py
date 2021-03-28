@@ -4,7 +4,8 @@ import pandas as pd
 data = pd.read_csv("data/video_games.csv")
 
 genres = data.Genre.unique()
-print(genres)
+print(sorted(genres))
+print(sorted(data.Year.unique()))
 
 genre_sales = data.groupby(['Genre']).sum().reset_index()
 # print(genre_sales.sort_values(by=['JP_Sales'], ascending=False))

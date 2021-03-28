@@ -1,35 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="utf-8">
-        <title>Assignment 6 &laquo; Data Visualization Dashboard&raquo;</title>
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="main.css"/>
-        <!--Feel free to add more CSS files as needed-->
-        <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-    </head>
+    <meta charset="utf-8">
+    <title>Assignment 6 &laquo; Data Visualization Dashboard&raquo;</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css" />
+    <!--Feel free to add more CSS files as needed-->
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+</head>
 
 <body>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <div class="header">
         <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
+        <h5>Note: Works best on a maximized window on a 1920x1080 monitor</h5>
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
+            <h3>Graph of Video Game Sales</h3>
             <div id="graph1"></div>
-            <p>Year Slider (Select 2021 for top video game sales of all time):
-                <input type="range" min="2000", max="2021", step="1", value="2021" id="yearSlider"/>
+            <h4>Year Slider (Select 2021 for top video game sales of all time):
+                <input type="range" min="1980" , max="2021" , step="1" , value="2021" , id="yearSlider" />
                 <output id="year">2021</output>
-                </p>
-            <div id="graph2"></div><br/>
+            </h4>
+            <br />
+            <h3>Map of Most Popular Genre in Regions</h3>
+            <div id="graph2"></div><br />
         </div>
+        </br>
         <div class="col-lg-6">
-            <div id="graph3"></div>
+            <h3>Top 5 Publishers per Genre</h3>
+            <label for="genres">Choose a genre:</label>
+
+            <select name="genres" id="genres" , onchange="updatePie(this.value)">
+                <option value="Action" selected>Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Misc">Misc</option>
+                <option value="Platform">Platform</option>
+                <option value="Puzzle">Puzzle</option>
+                <option value="Racing">Racing</option>
+                <option value="Role-Playing">Role-Playing</option>
+                <option value="Shooter">Shooter</option>
+                <option value="Simulation">Simulation</option>
+                <option value="Sports">Sports</option>
+                <option value="Strategy">Strategy</option>
+            </select>
+            <div id="graph3">
+                <!---->
+                <style>
+                    overflow:visible
+                </style>
+            </div>
+            <h3>Written Questions</h3>
+            <p>
+                <b>1.</b> I used the video games dataset. My first graph, which is the bar plot, shows
+                the top 10 video games for a selected year, or of all time if 2021 is selected.
+                This directly answers the first question. The selected year can be changed by
+                manipulating the year slider. <br />
+
+                My second graph is a map that shows the top video game genre for each region.
+                The top video game genre is determined by taking the total sales for each genre
+                in a particular region and then finding the genre with the most sales.
+                The name of the region, and the top video game genre can easily be viewed by
+                hovering over the circle for each region with the mouse cursor.<br />
+
+                My third graph is a pie chart that displays the top 5 publishers for each video
+                game genre. The top 5 publishers are calculated based on global sales numbers for
+                each genre. The rest of the global sales numbers are represented by the "Other"
+                label in the pie chart. There is also a percentage next to each publisher name,
+                which represents the market share of that publisher (i.e. the publisher's global
+                sales/total global sales for that genre). This way, The top publisher for a genre
+                is clearly visible by looking at the name and market share of the slice that is
+                not "Other". <br />
+                <br />
+                <b>2.</b> Firstly, D3 was useful in speeding up the creation of specific popular charts,
+                like pie charts or bar charts. It helped to automate the calculation of how big
+                the size of each pie should be, for instance. Secondly, D3 made it easy to add
+                animations to our charts. By using transition(), we could quickly make our charts
+                animated when changing between data. Thirdly, as D3 is relatively popular, there
+                is extensive documentation online for beginners like me to get started and debug
+                whatever bugs we have.<br />
+                <br />
+                <b>3.</b> Firstly, due to the fact that specific charts are already created, this means
+                that unless we are limited to specific charts for our visualizations unless we want
+                to manually make charts from scratch. Secondly, D3 might not be well supported on all
+                browsers and devices, particularly on older devices with outdated browser versions.
+                In those cases, if D3 is not supported, users might just see a blank page. Thirdly,
+                since D3 generates charts live in the browser, it might run slowly on a less powerful
+                system and when large datasets are used. By using D3, we might be using more system
+                resources than necessary, if all we wanted to do is display a static chart. In those
+                cases, it might be better for us to simply generate an image with another software like
+                matplotlib and then place it on our webpage.<br />
+                <br />
+                <b>4.</b> Ordinary people, and any people with hearing difficulties will find this page
+                accessible, since there are no sound elements on the page. People with visual impairments
+                will probably have the most difficulty with the page, since many elements are not
+                specifically coded to work with screen reader programs as described in "A Comprehensive
+                Guide to Accessible Data Visualization". Color blind users should be able to use the
+                website fine, as while there are colors, they are more there just for style, and also
+                everything has labels outside of the colored areas. Also, the shapes are separated with
+                lines, as described in the "Separate elements with whitespace or pattern" point from "A
+                Comprehensive Guide to Accessible Data Visualization". People with repetitive motion injuries
+                or difficulties clicking and holding the mouse might have trouble using the slider. To
+                make the dashboard more accessible to all audiences, perhaps a table that mirrors what
+                is being displayed on the graph and the map will be helpful for visually impaired
+                people, as that will work better with screen reader programs.<br />
+                <br />
+                <b>5.</b> Drawing out the shapes of the figures before starting the implementation step and
+                listing out various challenges that certain groups might have using the dashboard would
+                have helped to make the dashboard more accessible. I was constrained by the fact that I
+                did not decide on the specific visualizations I wanted to use until I was in the middle
+                of implementing the figures. Also, I could have used a dropdown menu instead of the slider
+                for the year. Unfortunately I had already implemented and tested the slider by the time
+                I realized the limitations of it, and also using a dropdown menu will be very long as
+                there are about 40 years in the slider's range.
+
+            </p>
         </div>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
 </body>
+
 </html>
