@@ -86,7 +86,7 @@ function topSalesYear(attr, year) {
 
         let color = d3.scaleOrdinal()
             .domain(data.map(function (d) { return d[attr] }))
-            .range(d3.quantize(d3.interpolateHcl(" #f92513", " #13f91e"), NUM_EXAMPLES));
+            .range(d3.quantize(d3.interpolateHcl("#AB3428", " #F4C74C"), NUM_EXAMPLES));
 
         bars.enter()
             .append("rect")
@@ -221,7 +221,7 @@ d3.csv(filenames[1], function (d) {
             .attr("cy", function (d) { return projection([d.long, d.lat])[1] })
             .attr("r", 25)
             .style("fill", "#69b3a2")
-            .attr("stroke", "#709cfa")
+            .attr("stroke", "#0A5DA0")
             .attr("stroke-width", 3)
             .attr("fill-opacity", .4)
             .on("mouseover", mouseover)
