@@ -56,7 +56,7 @@ function topSalesYear(attr, year) {
                 .text("No data available");
         }
         svg.append("text")
-            .attr("transform", `translate( ${(graph_1_width - margin.left - margin.right) / 2}, ${graph_1_height - margin.top - margin.bottom + 10})`)        // HINT: Place this at the bottom middle edge of the graph
+            .attr("transform", `translate( ${(graph_1_width - margin.left - margin.right) / 2}, ${graph_1_height - margin.top - margin.bottom + 15})`)        // HINT: Place this at the bottom middle edge of the graph
             .style("text-anchor", "middle")
             .text("Number of units sold (millions)");
         // Since this text will not update, we can declare it outside of the topSalesYear function
@@ -68,7 +68,7 @@ function topSalesYear(attr, year) {
             .style("text-anchor", "middle");
 
         let title = svg.append("text")
-            .attr("transform", `translate( ${(graph_1_width - margin.left - margin.right) / 2}, ${-20})`)         // HINT: Place this at the top middle edge of the graph
+            .attr("transform", `translate( ${(graph_1_width - margin.left - margin.right) / 2}, ${-25})`)         // HINT: Place this at the top middle edge of the graph
             .style("text-anchor", "middle")
             .style("font-size", 15);
         // Set x domain to global sales 
