@@ -64,7 +64,7 @@ function topSalesYear(attr, year) {
         //We declare global references to the y-axis label and the chart title to update the text when
         //the data source is changed.
         let y_axis_text = svg.append("text")
-            .attr("transform", `translate( ${-170}, ${margin.top - 50})`)       // HINT: Place this at the center left edge of the graph
+            .attr("transform", `translate( ${margin.right - 150}, ${margin.top - 50})`)       // HINT: Place this at the center left edge of the graph
             .style("text-anchor", "middle");
 
         let title = svg.append("text")
